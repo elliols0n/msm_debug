@@ -1,6 +1,7 @@
 class DirectorsController < ApplicationController
+  
   def index
-    directors = Director.all
+    @list_of_directors = Director.order(:created_at => :desc)
   end
 
   def show
@@ -12,10 +13,10 @@ class DirectorsController < ApplicationController
 
   def create_row
     @director = Director.new
-    @director.dob = params[:dob]
-    @director.name = params[:name]
-    @director.bio = params[:bio]
-    @director.image_url = params[:image_url]
+    @director_dob = params[:dob]
+    @director_name = params[:name]
+    @director_bio = params[:bio]
+    @director_image_url = params[:image_url]
 
     @director.save
 

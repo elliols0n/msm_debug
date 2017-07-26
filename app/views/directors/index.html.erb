@@ -16,26 +16,26 @@
       <th></th>
     </tr>
   </thead>
-
+  
+  <% @list_of_directors.each do |the_director| %>
   <tbody>
-    <% @directors.each do |director| %>
       <tr>
-        <td><img src="<%= director.image_url %>" width="80"></td>
-        <td><%= director.dob %></td>
-        <td><%= director.name %></td>
-        <td><%= truncate(director.bio) %></td>
+        <td><img src="<% the_director.image_url %>" width="80"></td>
+        <td><%= the_director.dob %></td>
+        <td><%= the_director.name %></td>
+        <td><%= truncate(the_director.bio) %></td>
         <td>
-          <a href="/directors/<%= director.id %>" class="btn btn-primary">
+          <a href="/directors/<%= the_director.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
         </td>
         <td>
-          <a href="/directors/<%= director.id %>/edit_form" class="btn btn-warning">
+          <a href="/directors/<%= the_director.id %>/edit_form" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
         </td>
         <td>
-          <a href="/delete_director/<%= director.id %>" class="btn btn-danger">
+          <a href="/delete_director/<%= @director_id %>" class="btn btn-danger">
             <i class="fa fa-trash-o"></i>
           </a>
         </td>
